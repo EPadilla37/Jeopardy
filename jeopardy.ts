@@ -1,8 +1,4 @@
-//const { default: axios } = require("axios");
 
-//const { createSemanticDiagnosticsBuilderProgram } = require("typescript");
-
-//let sampleSize = require('loadash.samplesize'); 
 import axios from 'axios'; 
 let NUM_CATEGORIES: number  = 6 
 let NUM_CLUES_PER_CAT:number = 5
@@ -76,16 +72,9 @@ function handleClick(evt): void {
     return;
   }
 
-  // Update text of cell
   $(`#${catId}-${clueId}`).html(msg);
 }
 
-/** Start game:
- *
- * - get random category Ids
- * - get data for each category
- * - create HTML table
- * */
 
 async function setupAndStart() {
   let catIds = await getCatId();
@@ -98,11 +87,9 @@ async function setupAndStart() {
   fillTable();
 }
 
-/** On click of restart button, restart game. */
 
 $("#restart").on("click", setupAndStart);
 
-/** On page load, setup and start & add event handler for clicking clues */
 
 $(async function () {
     setupAndStart();
